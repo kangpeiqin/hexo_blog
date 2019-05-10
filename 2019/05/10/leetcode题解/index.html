@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Leetcode,">
 
 
 
@@ -79,16 +79,15 @@
 
 
 
-<meta name="description" content="The best preparation for tomorrow is doing your best today.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="lemon&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="keywords" content="Leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode题解">
+<meta property="og:url" content="http://yoursite.com/2019/05/10/leetcode题解/index.html">
 <meta property="og:site_name" content="lemon&#39;s blog">
-<meta property="og:description" content="The best preparation for tomorrow is doing your best today.">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-10T11:30:49.755Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lemon&#39;s blog">
-<meta name="twitter:description" content="The best preparation for tomorrow is doing your best today.">
+<meta name="twitter:title" content="leetcode题解">
 
 
 
@@ -118,13 +117,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/10/leetcode题解/">
 
 
 
 
 
-  <title>lemon's blog</title>
+  <title>leetcode题解 | lemon's blog</title>
   
 
 
@@ -143,8 +142,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -247,9 +245,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -279,9 +277,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/10/leetcode题解/" itemprop="url">leetcode题解</a></h1>
+          <h1 class="post-title" itemprop="name headline">leetcode题解</h1>
         
 
         <div class="post-meta">
@@ -353,16 +349,23 @@
       
 
       
-        
-          <hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/10/leetcode题解/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <hr>
+<a id="more"></a>
+<p>为什么要做题呢？其实做题只是为了让你保持一种编程的状态，保持一种每天解决问题的习  惯，因为编程其实就是解决实际问题的过程啦。每天一点点，其实不会花费太多的时间啊，以下我将分类记下一些leetcode的题解。因为有很多这样的博客了，而且也分类写的很好了，我想做的只是记录一下我的历程啦，在其中也参照了很多他人的博客，分类是参考某博客的分类。</p>
+<hr>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h3><p>常用的解题方法</p>
+<blockquote>
+<ul>
+<li>遍历链表</li>
+<li>利用递归的思想，如反转链表</li>
+<li>双指针：快慢指针</li>
+</ul>
+</blockquote>
+<h4 id="Remove-Duplicates-from-Sorted-List"><a href="#Remove-Duplicates-from-Sorted-List" class="headerlink" title="Remove Duplicates from Sorted List"></a><a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list" target="_blank" rel="noopener">Remove Duplicates from Sorted List</a></h4><p>思路：遍历链表，在遍历时判断当前结点的值与后面结点的值是否相等，时间复杂度O(n)。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        ListNode cur=head; <span class="comment">//cur为遍历指针</span></span><br><span class="line">        <span class="keyword">while</span>(cur!=<span class="keyword">null</span>&amp;&amp;cur.next!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(cur.val==cur.next.val)&#123;</span><br><span class="line">                cur.next=curt.next.next;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                cur=cur.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Remove-Duplicates-from-Sorted-List-II"><a href="#Remove-Duplicates-from-Sorted-List-II" class="headerlink" title="Remove Duplicates from Sorted List II"></a><a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/" target="_blank" rel="noopener">Remove Duplicates from Sorted List II</a></h4><p>思路：采用双指针，一个指针指向需要保留的结点，一个指针对有重复值的结点进行查找。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(head==<span class="keyword">null</span>) <span class="keyword">return</span> head;</span><br><span class="line">    ListNode dummy = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">    dummy.next=head; <span class="comment">//创建一个虚的头结点，方便后续的操作判断</span></span><br><span class="line">    ListNode pre = dummy,cur = head;<span class="comment">//双指针，pre指向需要保留的结点，cur为查重指针</span></span><br><span class="line">    <span class="keyword">while</span>(cur!=<span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">while</span> (cur.next!=<span class="keyword">null</span>&amp;&amp;cur.val==cur.next.val)&#123; <span class="comment">//如果出现相等的结点，就把当前指针指到相等结点的最后一个,注意：并没有删除结点</span></span><br><span class="line">            cur=cur.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(pre.next==cur) &#123;  <span class="comment">//说明这是一个有唯一值的结点，cur指针还没有动过呢,通过cur指针是否有移动来判断是否存在等值结点</span></span><br><span class="line">            pre=pre.next;</span><br><span class="line">        &#125; <span class="keyword">else</span>&#123;    <span class="comment">//如果有一堆相等的结点，那就进行批量的删除</span></span><br><span class="line">            pre.next=cur.next; <span class="comment">//这边pre指针没有动过哦，只是修改它指向的下一个的结点</span></span><br><span class="line">        &#125;</span><br><span class="line">        cur=cur.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dummy.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Linked-List-Cycle"><a href="#Linked-List-Cycle" class="headerlink" title="Linked List Cycle"></a><a href="https://leetcode-cn.com/problems/linked-list-cycle" target="_blank" rel="noopener">Linked List Cycle</a></h4><p>思路：采用快慢指针的思想。如果存在环，快指针终归会追上慢指针<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasCycle</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(head==<span class="keyword">null</span>||head.next==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    ListNode fast,slow;</span><br><span class="line">    fast=slow=head;</span><br><span class="line">    <span class="keyword">while</span>(fast!=<span class="keyword">null</span>&amp;&amp;fast.next!=<span class="keyword">null</span>)&#123; <span class="comment">//注意这边判断的写法，同时对前后两个结点进行判断</span></span><br><span class="line">       fast=fast.next.next;<span class="comment">//fast每次走两步，slow每次走一步</span></span><br><span class="line">       slow=slow.next;</span><br><span class="line">       <span class="keyword">if</span>(fast==slow) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -377,14 +380,20 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Leetcode/" rel="tag"># Leetcode</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -394,10 +403,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -405,6 +415,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -425,8 +439,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -498,6 +521,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">1.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkedList"><span class="nav-number">1.1.</span> <span class="nav-text">LinkedList</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Remove-Duplicates-from-Sorted-List"><span class="nav-number">1.1.1.</span> <span class="nav-text">Remove Duplicates from Sorted List</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Remove-Duplicates-from-Sorted-List-II"><span class="nav-number">1.1.2.</span> <span class="nav-text">Remove Duplicates from Sorted List II</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linked-List-Cycle"><span class="nav-number">1.1.3.</span> <span class="nav-text">Linked List Cycle</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -631,6 +670,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

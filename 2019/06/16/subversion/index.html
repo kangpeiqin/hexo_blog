@@ -87,7 +87,7 @@
 <meta property="og:image" content="http://yoursite.com/uploads/svn1.png">
 <meta property="og:image" content="http://yoursite.com/uploads/svn.png">
 <meta property="og:image" content="http://yoursite.com/uploads/idea.png">
-<meta property="og:updated_time" content="2019-06-16T14:58:07.908Z">
+<meta property="og:updated_time" content="2019-06-19T13:36:04.059Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="版本控制工具的使用">
 <meta name="twitter:image" content="http://yoursite.com/uploads/svn1.png">
@@ -344,12 +344,13 @@
       
         <hr>
 <a id="more"></a>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在开发过程中，我们避免不了要管理我们编写的代码（比如要回退到某一时刻的版本、多人协作编写代码等），版本控制工具就是起到这样一个作用。版本控制系统有两种,一种是集中式，一种是分布式。集中式就是中央服务器保存所有文件的历史版本，我们通过客户端获取最新版本。分布式：每台电脑都保留着完整的历史版本，多人协同开发时通过推送的方式保持代码的一致。以下是通过虚拟机VMware中的CentOS进行的操作。</p>
-<h2 id="SVN"><a href="#SVN" class="headerlink" title="SVN"></a>SVN</h2><h4 id="CentOS安装svn服务器"><a href="#CentOS安装svn服务器" class="headerlink" title="CentOS安装svn服务器"></a>CentOS安装svn服务器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum install subversion</span><br></pre></td></tr></table></figure>
-<h4 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># mkdir   #创建目录</span><br><span class="line"># svnadmin create  #将上面创建的目录指定为svn版本库</span><br></pre></td></tr></table></figure>
-<h4 id="创建用户、配置相关的权限"><a href="#创建用户、配置相关的权限" class="headerlink" title="创建用户、配置相关的权限"></a>创建用户、配置相关的权限</h4><p>创建完成后，通过命令查看目录中的文件，发现svn为我们创建了：<img src="/uploads/svn1.png" alt="explanation">在这里我们主要关注<code>conf</code>目录中的三个文件<img src="/uploads/svn.png" alt="explanation"><code>passwd</code>用于设置用户名和密码，<code>authz</code>主要用于设置组别和用户的权限，<code>svnserve.conf</code>用于全局设置（如匿名访问者的权限）。具体的配置可见每个文件当中的注释信息。这里不再赘述。</p>
-<h4 id="通过客户端进行访问"><a href="#通过客户端进行访问" class="headerlink" title="通过客户端进行访问"></a>通过客户端进行访问</h4><p>下载<code>TortoiseSVN客户端</code> 并进行安装。<br>常用的功能：<br><strong>Checkout（提取）</strong>:获取服务器上的源代码<br><strong>Commit（提交）</strong>:提交编写的代码<br><strong>Update (更新)</strong>:从服务器上获取最新的代码版本<br><strong>Revert（版本回退）</strong>:撤销任何文件或目录里的局部更改</p>
-<h4 id="idea中配置svn"><a href="#idea中配置svn" class="headerlink" title="idea中配置svn"></a>idea中配置svn</h4><p>最后，在IDE当中配置svn简化我们的日常的一些操作。<br><img src="/uploads/idea.png" alt="explanation"></p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>在开发过程中，我们避免不了要管理我们编写的代码（比如要回退到某一时刻的版本、多人协作编写代码等），版本控制工具就是起到这样一个作用。版本控制系统有两种,一种是集中式，一种是分布式。集中式就是中央服务器保存所有文件的历史版本，我们通过客户端获取最新版本。分布式：每台电脑都保留着完整的历史版本，多人协同开发时通过推送的方式保持代码的一致。以下是通过虚拟机VMware中的CentOS进行的操作。</p>
+<h1 id="SVN"><a href="#SVN" class="headerlink" title="SVN"></a>SVN</h1><h2 id="CentOS安装svn服务器"><a href="#CentOS安装svn服务器" class="headerlink" title="CentOS安装svn服务器"></a>CentOS安装svn服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum install subversion</span><br></pre></td></tr></table></figure>
+<h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># mkdir   #创建目录</span><br><span class="line"># svnadmin create  #将上面创建的目录指定为svn版本库</span><br></pre></td></tr></table></figure>
+<h2 id="创建用户、配置相关的权限"><a href="#创建用户、配置相关的权限" class="headerlink" title="创建用户、配置相关的权限"></a>创建用户、配置相关的权限</h2><p>创建完成后，通过命令查看目录中的文件，发现svn为我们创建了：<img src="/uploads/svn1.png" alt="explanation">在这里我们主要关注<code>conf</code>目录中的三个文件<img src="/uploads/svn.png" alt="explanation"><code>passwd</code>用于设置用户名和密码，<code>authz</code>主要用于设置组别和用户的权限，<code>svnserve.conf</code>用于全局设置（如匿名访问者的权限）。具体的配置可见每个文件当中的注释信息。这里不再赘述。<br>最后启动服务：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># svnserve -d -r 目录 --listen-port 端口号</span><br></pre></td></tr></table></figure></p>
+<p>SVN默认监听端口号3690。</p>
+<h2 id="通过客户端进行访问"><a href="#通过客户端进行访问" class="headerlink" title="通过客户端进行访问"></a>通过客户端进行访问</h2><p>下载<code>TortoiseSVN客户端</code> 并进行安装。<br>常用的功能：<br><strong>Checkout（提取）</strong>:获取服务器上的源代码<br><strong>Commit（提交）</strong>:提交编写的代码<br><strong>Update (更新)</strong>:从服务器上获取最新的代码版本<br><strong>Revert（版本回退）</strong>:撤销任何文件或目录里的局部更改</p>
+<h2 id="idea中配置svn"><a href="#idea中配置svn" class="headerlink" title="idea中配置svn"></a>idea中配置svn</h2><p>最后，在IDE当中配置svn简化我们的日常的一些操作。<br><img src="/uploads/idea.png" alt="explanation"></p>
 
       
     </div>
@@ -519,7 +520,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVN"><span class="nav-number">2.</span> <span class="nav-text">SVN</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CentOS安装svn服务器"><span class="nav-number">2.0.1.</span> <span class="nav-text">CentOS安装svn服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建版本库"><span class="nav-number">2.0.2.</span> <span class="nav-text">创建版本库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建用户、配置相关的权限"><span class="nav-number">2.0.3.</span> <span class="nav-text">创建用户、配置相关的权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过客户端进行访问"><span class="nav-number">2.0.4.</span> <span class="nav-text">通过客户端进行访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#idea中配置svn"><span class="nav-number">2.0.5.</span> <span class="nav-text">idea中配置svn</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SVN"><span class="nav-number">2.</span> <span class="nav-text">SVN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS安装svn服务器"><span class="nav-number">2.1.</span> <span class="nav-text">CentOS安装svn服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建版本库"><span class="nav-number">2.2.</span> <span class="nav-text">创建版本库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建用户、配置相关的权限"><span class="nav-number">2.3.</span> <span class="nav-text">创建用户、配置相关的权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过客户端进行访问"><span class="nav-number">2.4.</span> <span class="nav-text">通过客户端进行访问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea中配置svn"><span class="nav-number">2.5.</span> <span class="nav-text">idea中配置svn</span></a></li></ol></li></ol></div>
             
 
           </div>

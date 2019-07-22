@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Data Structure & Algorithm,">
 
 
 
@@ -79,18 +79,15 @@
 
 
 
+<meta name="keywords" content="Data Structure &amp; Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="版本控制工具的使用">
-<meta property="og:url" content="http://yoursite.com/2019/06/16/subversion/index.html">
+<meta property="og:title" content="PAT题解">
+<meta property="og:url" content="http://yoursite.com/2019/07/22/pat/index.html">
 <meta property="og:site_name" content="剪影">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/uploads/svn1.png">
-<meta property="og:image" content="http://yoursite.com/uploads/svn.png">
-<meta property="og:image" content="http://yoursite.com/uploads/idea.png">
-<meta property="og:updated_time" content="2019-06-21T12:51:22.325Z">
+<meta property="og:updated_time" content="2019-07-22T14:55:29.248Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="版本控制工具的使用">
-<meta name="twitter:image" content="http://yoursite.com/uploads/svn1.png">
+<meta name="twitter:title" content="PAT题解">
 
 
 
@@ -120,13 +117,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/16/subversion/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/22/pat/">
 
 
 
 
 
-  <title>版本控制工具的使用 | 剪影</title>
+  <title>PAT题解 | 剪影</title>
   
 
 
@@ -253,7 +250,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/16/subversion/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/22/pat/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="KANGPEIQIN">
@@ -270,7 +267,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">版本控制工具的使用</h1>
+          <h1 class="post-title" itemprop="name headline">PAT题解</h1>
         
 
         <div class="post-meta">
@@ -282,8 +279,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-16T15:00:55+08:00">
-                2019-06-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-22T22:45:46+08:00">
+                2019-07-22
               </time>
             
 
@@ -292,28 +289,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/版本控制/" itemprop="url" rel="index">
-                    <span itemprop="name">版本控制</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -344,14 +319,7 @@
       
         <hr>
 <a id="more"></a>
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>在开发过程中，我们避免不了要管理我们编写的代码（比如要回退到某一时刻的版本、多人协作编写代码等），版本控制工具就是起到这样一个作用。版本控制系统有两种,一种是集中式，一种是分布式。集中式就是中央服务器保存所有文件的历史版本，我们通过客户端获取最新版本。分布式：每台电脑都保留着完整的历史版本，多人协同开发时通过推送的方式保持代码的一致。以下是通过虚拟机VMware中的CentOS进行的操作。</p>
-<h1 id="SVN"><a href="#SVN" class="headerlink" title="SVN"></a>SVN</h1><h2 id="CentOS安装svn服务器"><a href="#CentOS安装svn服务器" class="headerlink" title="CentOS安装svn服务器"></a>CentOS安装svn服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum install subversion</span><br></pre></td></tr></table></figure>
-<h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># mkdir   #创建目录</span><br><span class="line"># svnadmin create  #将上面创建的目录指定为svn版本库</span><br></pre></td></tr></table></figure>
-<h2 id="创建用户、配置相关的权限"><a href="#创建用户、配置相关的权限" class="headerlink" title="创建用户、配置相关的权限"></a>创建用户、配置相关的权限</h2><p>创建完成后，通过命令查看目录中的文件，发现svn为我们创建了：<img src="/uploads/svn1.png" alt="explanation">在这里我们主要关注<code>conf</code>目录中的三个文件<img src="/uploads/svn.png" alt="explanation"><code>passwd</code>用于设置用户名和密码，<code>authz</code>主要用于设置组别和用户的权限，<code>svnserve.conf</code>用于全局设置（如匿名访问者的权限）。具体的配置可见每个文件当中的注释信息。这里不再赘述。<br>最后启动服务：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># svnserve -d -r 目录 --listen-port 端口号</span><br></pre></td></tr></table></figure></p>
-<p>SVN默认监听端口号3690。</p>
-<h2 id="通过客户端进行访问"><a href="#通过客户端进行访问" class="headerlink" title="通过客户端进行访问"></a>通过客户端进行访问</h2><p>下载<code>TortoiseSVN客户端</code> 并进行安装。<br>常用的功能：<br><strong>Checkout（提取）</strong>:获取服务器上的源代码<br><strong>Commit（提交）</strong>:提交编写的代码<br><strong>Update (更新)</strong>:从服务器上获取最新的代码版本<br><strong>Revert（版本回退）</strong>:撤销任何文件或目录里的局部更改</p>
-<h2 id="idea中配置svn"><a href="#idea中配置svn" class="headerlink" title="idea中配置svn"></a>idea中配置svn</h2><p>最后，在IDE当中配置svn简化我们的日常的一些操作。<br><img src="/uploads/idea.png" alt="explanation"></p>
-
+<h3 id="树与二叉树"><a href="#树与二叉树" class="headerlink" title="树与二叉树"></a>树与二叉树</h3><h4 id="1020-Tree-Traversals"><a href="#1020-Tree-Traversals" class="headerlink" title="1020 Tree Traversals"></a>1020 Tree Traversals</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">#include&lt;queue&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int MAXN=50; //最大的结点数 </span><br><span class="line">int n;</span><br><span class="line">int post[MAXN],in[MAXN];//用于保存后序和中序遍历结点的数组</span><br><span class="line">/*定义树结点结构*/</span><br><span class="line">struct TreeNode &#123;</span><br><span class="line">	int val;</span><br><span class="line">	struct TreeNode *left;</span><br><span class="line">	struct TreeNode *right;</span><br><span class="line">&#125;;</span><br><span class="line">/*根据中序和后续递归创建树*/</span><br><span class="line">TreeNode *createTree(int postL,int postR,int inL,int inR) &#123;</span><br><span class="line">	if(postL &gt; postR) &#123; //递归边界</span><br><span class="line">		return NULL;</span><br><span class="line">	&#125;</span><br><span class="line">	TreeNode *root = new TreeNode();//创建根结点</span><br><span class="line">	root-&gt;val = post[postR];</span><br><span class="line">	int k=0;</span><br><span class="line">	for(k = 0; k &lt; n; k++) &#123; //计算出根结点在中序序列的位置</span><br><span class="line">		if(in[k]==post[postR]) &#123;</span><br><span class="line">			break;                </span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	int numberLeft = k-inL; //左子树的结点数 3</span><br><span class="line">	root-&gt;left = createTree(postL,postL+numberLeft-1,inL,inL+numberLeft-1); //下标是从0开始的 </span><br><span class="line">	root-&gt;right = createTree(postL+numberLeft,postR-1,inL+numberLeft+1,inR);</span><br><span class="line">	return root; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 层序遍历 */</span><br><span class="line">void levelTraver(TreeNode* root)&#123;</span><br><span class="line">	int count = 0;</span><br><span class="line">	queue&lt;TreeNode*&gt; q;//创建一个队列 </span><br><span class="line">	q.push(root);</span><br><span class="line">	while(!q.empty())&#123;</span><br><span class="line">		TreeNode* node = q.front(); //取出队列首结点 </span><br><span class="line">		q.pop(); //弹出首结点 </span><br><span class="line">		printf(&quot;%d&quot;,node-&gt;val);</span><br><span class="line">		count++;</span><br><span class="line">		if(count&lt;n) printf(&quot; &quot;);</span><br><span class="line">		if(node-&gt;left)&#123;</span><br><span class="line">			q.push(node-&gt;left);</span><br><span class="line">		&#125;</span><br><span class="line">		if(node-&gt;right)&#123;</span><br><span class="line">			q.push(node-&gt;right);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125; </span><br><span class="line">int main() &#123;</span><br><span class="line">	scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">	for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">		scanf(&quot;%d&quot;,&amp;post[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">		scanf(&quot;%d&quot;,&amp;in[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	TreeNode* root = createTree(0,n-1,0,n-1);</span><br><span class="line">	levelTraver(root);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -366,6 +334,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Data-Structure-Algorithm/" rel="tag"># Data Structure & Algorithm</a>
+          
+        </div>
+      
 
       
       
@@ -375,8 +349,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/10/leetcode题解/" rel="next" title="leetcode题解">
-                <i class="fa fa-chevron-left"></i> leetcode题解
+              <a href="/2019/06/16/subversion/" rel="next" title="版本控制工具的使用">
+                <i class="fa fa-chevron-left"></i> 版本控制工具的使用
               </a>
             
           </div>
@@ -384,10 +358,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/22/pat/" rel="prev" title="PAT题解">
-                PAT题解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -533,7 +503,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SVN"><span class="nav-number">2.</span> <span class="nav-text">SVN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS安装svn服务器"><span class="nav-number">2.1.</span> <span class="nav-text">CentOS安装svn服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建版本库"><span class="nav-number">2.2.</span> <span class="nav-text">创建版本库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建用户、配置相关的权限"><span class="nav-number">2.3.</span> <span class="nav-text">创建用户、配置相关的权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过客户端进行访问"><span class="nav-number">2.4.</span> <span class="nav-text">通过客户端进行访问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea中配置svn"><span class="nav-number">2.5.</span> <span class="nav-text">idea中配置svn</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#树与二叉树"><span class="nav-number">1.</span> <span class="nav-text">树与二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1020-Tree-Traversals"><span class="nav-number">1.1.</span> <span class="nav-text">1020 Tree Traversals</span></a></li></ol></li></ol></div>
             
 
           </div>

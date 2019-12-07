@@ -80,13 +80,15 @@
 
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java基础知识总结">
+<meta property="og:title" content="Java基础知识小结">
 <meta property="og:url" content="http://yoursite.com/2019/11/02/Java基础知识回顾/index.html">
 <meta property="og:site_name" content="KANGPEIQIN">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-03T13:42:45.853Z">
+<meta property="og:image" content="http://yoursite.com/uploads/enum.png">
+<meta property="og:updated_time" content="2019-12-07T03:45:49.490Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java基础知识总结">
+<meta name="twitter:title" content="Java基础知识小结">
+<meta name="twitter:image" content="http://yoursite.com/uploads/enum.png">
 
 
 
@@ -122,7 +124,7 @@
 
 
 
-  <title>Java基础知识总结 | KANGPEIQIN</title>
+  <title>Java基础知识小结 | KANGPEIQIN</title>
   
 
 
@@ -266,7 +268,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java基础知识总结</h1>
+          <h1 class="post-title" itemprop="name headline">Java基础知识小结</h1>
         
 
         <div class="post-meta">
@@ -340,9 +342,16 @@
       
         <hr>
 <a id="more"></a>
-<p>就像看待什么事情都不能只看表面一样，看代码也是一样，只有深入底层，我们才能理解得更加透彻。而这都离不开良好的基础，以下是参考《深入理解java虚拟机》、《core Java》等书籍，还有一些博客做的一些总结。</p>
-<h3 id="Class类文件结构"><a href="#Class类文件结构" class="headerlink" title="Class类文件结构"></a>Class类文件结构</h3><p>   我们知道java具有跨平台的能力是因为java虚拟机对不同的平台有各自的实现，JVM执行的是字节码，所以只要符合字节码规范的.class文件就可以在JVM中运行。</p>
-<h3 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h3><h3 id="反射机制"><a href="#反射机制" class="headerlink" title="反射机制"></a>反射机制</h3><h3 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h3><h3 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h3>
+<h2 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h2><p>概念理解 </p>
+<blockquote>
+<p>将有限集合创建为一种新的类型</p>
+</blockquote>
+<p>创建 <code>Color.java</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Color &#123;</span><br><span class="line">    RED, GREEN, WHITE</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>用反编译命令<code>javap Color.class</code>可得到：<br><img src="/uploads/enum.png" alt="反编译后的类">可见：enum类型本质还是一个类，查看Enum源码中并没有values()方法，该方法是编译器为我们所添加，我们可以这样<code>Color red = color.RED</code>直接返回类的对象引用。<br>可以用构造函数对对实例进行初始化：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Color &#123;</span><br><span class="line">    RED(<span class="string">"this is red"</span>), GREEN, WHITE;</span><br><span class="line">    <span class="keyword">private</span> String description;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Color</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Color</span><span class="params">(String description)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.description = description;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDescription</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> description;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>常用方法</strong>：静态方法<code>values()</code>：<code>Color[] colors = Color.values();</code>返回enum实例的数组 | <code>ordinal()</code>：返回实例次序 | 由于java的单继承机制实现接口是使其子类化的唯一办法</p>
+<hr>
+<p>参考：《Thinking In Java(4th edition)》</p>
+
       
     </div>
     
@@ -375,10 +384,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/03/JDK源码阅读/" rel="prev" title="JDK源码阅读">
-                JDK源码阅读 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -459,7 +464,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -515,7 +520,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Class类文件结构"><span class="nav-number">1.</span> <span class="nav-text">Class类文件结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注解"><span class="nav-number">2.</span> <span class="nav-text">注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反射机制"><span class="nav-number">3.</span> <span class="nav-text">反射机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代理"><span class="nav-number">4.</span> <span class="nav-text">代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态内部类"><span class="nav-number">5.</span> <span class="nav-text">静态内部类</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#枚举类型"><span class="nav-number">1.</span> <span class="nav-text">枚举类型</span></a></li></ol></div>
             
 
           </div>

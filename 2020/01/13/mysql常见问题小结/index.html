@@ -84,7 +84,7 @@
 <meta property="og:url" content="http://yoursite.com/2020/01/13/mysql常见问题小结/index.html">
 <meta property="og:site_name" content="KANGPEIQIN">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-13T14:39:23.862Z">
+<meta property="og:updated_time" content="2020-01-15T15:07:55.645Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql常见问题小结">
 
@@ -345,20 +345,22 @@
 <ul>
 <li>创建：<code>create view viewname as &lt;query expression&gt;</code></li>
 <li>删除: <code>drop view viewname</code></li>
-<li>更新：<code>create or replace view</code>，更新视图(不可更新:分组、联结、子查询、并、聚合函数)</li>
+<li>替换视图：<code>create or replace view</code></li>
+<li>更新视图(不可更新:分组、联结、子查询、并、聚合函数)</li>
 <li>查看创建语句：<code>show create view viewname</code></li>
-<li>作用：<br>重用sql语句、简化(隐藏)复杂的sql操作、<br>保护数据(授予特定部分的访问权限而不是整表)、使用表的组成部分而不是整表</li>
+<li>作用：<code>重用sql语句、简化(隐藏)复杂的sql操作、
+保护数据(授予特定部分的访问权限而不是整表)、使用表的组成部分而不是整表</code></li>
 </ul>
 </blockquote>
 <h2 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h2><blockquote>
 <p>定义：为了以后的使用而保存的一条或者多条的sql语句集合（比如:一个完整的操作需要多条语句才能完成）</p>
 <ul>
 <li>作用：把处理进行封装、保证数据完整性(不需要反复建立一系列处理步骤)、简化变动管理</li>
-<li>创建：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE PROCEDURE procedureName()</span><br><span class="line">BEGIN</span><br><span class="line">    query state;</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+<li>创建：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE PROCEDURE procedureName()</span><br><span class="line">BEGIN</span><br><span class="line">    query expression;</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </blockquote>
-<p>使用：<code>CALL proceduName(parameter,@parameter)</code></p>
+<p>调用存储过程：<code>CALL proceduName(parameter,@parameter)</code></p>
 <ul>
 <li>用存储过程把结果返回给指定的变量<code>out\in</code>声明变量：<code>declare variable type</code>将查询结果存入变量：<code>into</code></li>
 </ul>

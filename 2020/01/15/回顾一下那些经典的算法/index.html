@@ -84,7 +84,7 @@
 <meta property="og:url" content="http://yoursite.com/2020/01/15/回顾一下那些经典的算法/index.html">
 <meta property="og:site_name" content="KANGPEIQIN">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-04T03:55:12.253Z">
+<meta property="og:updated_time" content="2020-02-11T15:24:46.209Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构与算法">
 
@@ -340,7 +340,13 @@
       
         <hr>
 <a id="more"></a>
-<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><h3 id="广度优先遍历-BFS"><a href="#广度优先遍历-BFS" class="headerlink" title="广度优先遍历(BFS)"></a>广度优先遍历(BFS)</h3><p>算法概述:通过队列的协助，一层层访问路径相等的结点。</p>
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><blockquote>
+<ol start="70">
+<li>Climbing Stairs</li>
+</ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int climbStairs(int n) &#123;</span><br><span class="line">        if (n &lt;= 2) &#123;</span><br><span class="line">            return n;</span><br><span class="line">        &#125;</span><br><span class="line">        int[] dp = new int[n + 1];</span><br><span class="line">        dp[1] = 1;</span><br><span class="line">        dp[2] = 2;</span><br><span class="line">        for (int i = 3; i &lt;= n; i++) &#123;</span><br><span class="line">            dp[i] = dp[i - 2] + dp[i - 1];</span><br><span class="line">        &#125;</span><br><span class="line">        return dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><h3 id="广度优先遍历-BFS"><a href="#广度优先遍历-BFS" class="headerlink" title="广度优先遍历(BFS)"></a>广度优先遍历(BFS)</h3><p>算法概述:通过队列的协助，一层层访问路径相等的结点。</p>
 <blockquote>
 <ol start="1091">
 <li>Shortest Path in Binary Matrix</li>
@@ -574,7 +580,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#算法"><span class="nav-number">1.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索"><span class="nav-number">1.1.</span> <span class="nav-text">搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#广度优先遍历-BFS"><span class="nav-number">1.1.1.</span> <span class="nav-text">广度优先遍历(BFS)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双指针"><span class="nav-number">1.2.</span> <span class="nav-text">双指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贪心算法"><span class="nav-number">1.3.</span> <span class="nav-text">贪心算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构"><span class="nav-number">2.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#位运算"><span class="nav-number">2.1.</span> <span class="nav-text">位运算</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#剑指offer题解"><span class="nav-number">3.</span> <span class="nav-text">剑指offer题解</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#算法"><span class="nav-number">1.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#动态规划"><span class="nav-number">1.1.</span> <span class="nav-text">动态规划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索"><span class="nav-number">1.2.</span> <span class="nav-text">搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#广度优先遍历-BFS"><span class="nav-number">1.2.1.</span> <span class="nav-text">广度优先遍历(BFS)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双指针"><span class="nav-number">1.3.</span> <span class="nav-text">双指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贪心算法"><span class="nav-number">1.4.</span> <span class="nav-text">贪心算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构"><span class="nav-number">2.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#位运算"><span class="nav-number">2.1.</span> <span class="nav-text">位运算</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#剑指offer题解"><span class="nav-number">3.</span> <span class="nav-text">剑指offer题解</span></a></li></ol></div>
             
 
           </div>

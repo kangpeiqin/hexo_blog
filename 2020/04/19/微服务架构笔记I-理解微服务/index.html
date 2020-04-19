@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="categories:">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微服务架构笔记I--理解微服务">
+<meta property="og:url" content="http://yoursite.com/2020/04/19/微服务架构笔记I-理解微服务/index.html">
 <meta property="og:site_name" content="KANGPEIQIN">
-<meta property="og:description" content="categories:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-02T12:52:26.358Z">
+<meta property="og:image" content="http://yoursite.com/uploads/cloud.png">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2020/4/19/17192bf71f1144ab?w=1239&h=359&f=png&s=99493">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2020/4/19/171930bbba739b06?w=713&h=458&f=png&s=69654">
+<meta property="og:updated_time" content="2020-04-19T15:52:23.474Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="categories:">
+<meta name="twitter:title" content="微服务架构笔记I--理解微服务">
+<meta name="twitter:image" content="http://yoursite.com/uploads/cloud.png">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/">
+  <link rel="canonical" href="http://yoursite.com/2020/04/19/微服务架构笔记I-理解微服务/">
 
 
 
 
 
-  <title>categories | KANGPEIQIN</title>
+  <title>微服务架构笔记I--理解微服务 | KANGPEIQIN</title>
   
 
 
@@ -240,40 +241,194 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/19/微服务架构笔记I-理解微服务/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="KANGPEIQIN">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KANGPEIQIN">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 7 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Structure-Algorithm/">Data Structure & Algorithm</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DataBase/">DataBase</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/NoSQL/">NoSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SpringCloud/">SpringCloud</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/版本控制/">版本控制</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">微服务架构笔记I--理解微服务</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-19T23:46:00+08:00">
+                2020-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SpringCloud/" itemprop="url" rel="index">
+                    <span itemprop="name">SpringCloud</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p><img src="/uploads/cloud.png" alt="Image"><br><a id="more"></a></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>服务器端开发的历史比较长，应该有几十年史了吧，所以很多问题都有现成的解决方案。在JavaWeb中，我们都很少能够绕开Spring家族，它提供了很多稳健可复用的代码，简化了开发工作，让开发者更多地去关注业务层面代码逻辑的实现。以下是SpringCloud的学习笔记，理清一些基本的概念以及微服务开发的流程。</p>
+</blockquote>
+<h2 id="微服务架构"><a href="#微服务架构" class="headerlink" title="微服务架构"></a>微服务架构</h2><ul>
+<li>什么是微服务(分布式架构的一种解决方案)<blockquote>
+<p>单体应用(所有功能都打包在一个jar或者war文件在服务器中运行)适用于小型项目，缺点是:承担职责多，不利于扩展。一旦项目变得庞大和复杂，由众多的业务构成，就必须考虑可扩展、易于部署的架构。<strong>微服务是将功能拆分成一系列微服务的架构模式</strong>，可以理解成分治的策略。</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2020/4/19/17192bf71f1144ab?w=1239&amp;h=359&amp;f=png&amp;s=99493" alt="架构演变"></p>
+<ul>
+<li>微服务设计需要考虑的一些因素<ul>
+<li>服务粒度(承担的职责、业务划分)</li>
+<li>拆分原则(单一职责原则、共同封闭原则:将需要修改范围限制在同一个包中)</li>
+<li>自治原则<blockquote>
+<p>每个微服务拥有其业务领域对象下的数据，只有该微服务可以对这些数据进行读写操作，其他微服务只能通过该微服务才能访问到这些数据。所以，可以不用为每个微服务创建独立的数据库，可以创建统一的数据库。</p>
+</blockquote>
+</li>
+<li>交互原则(REST协议：用HTTP作为服务的调用协议、JSON数据格式等)</li>
+</ul>
+</li>
+<li>微服务架构的核心点(微服务架构是思想，SpringCloud可以说是提供了一套实现和解决方案，为开发者提供了一套基础设施，让我们不必再从零进行构建)</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2020/4/19/171930bbba739b06?w=713&amp;h=458&amp;f=png&amp;s=69654" alt></p>
+<ul>
+<li>SpringCloud概述<blockquote>
+<p>对已有微服务组件的封装和集成，为快速构建微服务架构应用提供一套基础设施工具和开发支持，是众多子项目的集成。版本名称是使用伦敦地铁站名称发布。子项目大致可分为两类：一是<strong>对现有第三方开源项目SpringBoot化</strong>(每个微服务d都是一个独立的应用，需要快速启动、提供服务接口等，Spring Boot刚好符合这些要求)，使得基于Spring开发容易集成和使用。二是<strong>新增微服务开发所需要的基础设施</strong>：如统一配置中心、Stream充当消息中间件快速集成的桥梁。</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>参考：《Spring Cloud微服务开发架构实战》、<a href="https://spring.io/projects/spring-cloud" target="_blank" rel="noopener">Spring Cloud官网</a></p>
+</blockquote>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/27/Java8/" rel="next" title="浅谈Java8">
+                <i class="fa fa-chevron-left"></i> 浅谈Java8
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -308,8 +463,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -372,6 +536,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微服务架构"><span class="nav-number">2.</span> <span class="nav-text">微服务架构</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

@@ -85,7 +85,7 @@
 <meta property="og:site_name" content="KANGPEIQIN">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/uploads/Java8.png">
-<meta property="og:updated_time" content="2020-03-28T14:28:17.767Z">
+<meta property="og:updated_time" content="2020-04-22T15:12:16.310Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈Java8">
 <meta name="twitter:image" content="http://yoursite.com/uploads/Java8.png">
@@ -345,7 +345,13 @@
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
 <p>整理下Java8的新特性。这篇文章不会说把Java8的知识点说的面面俱到，因为已经有很多博客、书籍都写的很好了，更多的细节可以去看看这些博客与书籍。在这里，主要记录下学习Java8过程中的一些困惑点。</p>
 </blockquote>
-<p><img src="/uploads/Java8.png" alt="Java8"></p>
+<p><img style="width: auto;
+    max-width: 100%;
+    border-radius: 12px;
+    display: block;
+    margin: 20px auto;
+    object-fit: contain;
+    box-shadow: 2px 4px 7px #999;" src="/uploads/Java8.png"></p>
 <h2 id="一个简单的示例"><a href="#一个简单的示例" class="headerlink" title="一个简单的示例"></a>一个简单的示例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 定义一个函数接口：(只有一个抽象方法，可有多个默认实现的接口)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@FunctionalInterface</span><span class="comment">//添加这个注解后，编译器会检查当前的接口是否符合函数接口规范</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Converter</span>&lt;<span class="title">F</span>, <span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function">T <span class="title">convert</span><span class="params">(F from)</span></span>; <span class="comment">//传入F类型参数，输出T类型结果</span></span><br><span class="line">    <span class="function"><span class="keyword">default</span> Integer <span class="title">convertToInteger</span><span class="params">(String s)</span> </span>&#123;<span class="comment">//默认方法实现，可有多个</span></span><br><span class="line">        <span class="keyword">return</span> Integer.valueOf(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//测试：实现接口</span></span><br><span class="line">Converter&lt;String, Integer&gt; converter = <span class="keyword">new</span> Converter&lt;String, Integer&gt;() &#123;</span><br><span class="line">     <span class="meta">@Override</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> Integer <span class="title">convert</span><span class="params">(String from)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Integer.valueOf(from);</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;;</span><br><span class="line"> <span class="comment">//可以将Lambda表达式简单的理解为更加简洁的函数接口的实现方式。</span></span><br><span class="line">Converter&lt;String, Integer&gt; converter = Integer::valueOf;( 方法引用等价于：v-&gt; Integer.valueOf(v))<span class="comment">//前面是参数(编译器可以推断出参数类型)，后面是Lambda主体</span></span><br></pre></td></tr></table></figure>
 <h2 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h2><blockquote>
 <p>Lambda表达式返回的是函数接口类型，其实与代替匿名函数的作用是相同的。</p>

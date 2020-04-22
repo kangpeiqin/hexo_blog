@@ -80,15 +80,16 @@
 
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈Java8">
-<meta property="og:url" content="http://yoursite.com/2020/03/27/Java8/index.html">
+<meta property="og:title" content="微服务架构学习笔记II--SpringCloud基本组件">
+<meta property="og:url" content="http://yoursite.com/2020/04/22/微服务架构学习笔记II-SpringCloud基本组件/index.html">
 <meta property="og:site_name" content="KANGPEIQIN">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/uploads/Java8.png">
-<meta property="og:updated_time" content="2020-03-28T14:28:17.767Z">
+<meta property="og:image" content="http://yoursite.com/uploads/springCloud.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Eureka.png">
+<meta property="og:updated_time" content="2020-04-22T14:59:58.947Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈Java8">
-<meta name="twitter:image" content="http://yoursite.com/uploads/Java8.png">
+<meta name="twitter:title" content="微服务架构学习笔记II--SpringCloud基本组件">
+<meta name="twitter:image" content="http://yoursite.com/uploads/springCloud.png">
 
 
 
@@ -118,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/03/27/Java8/">
+  <link rel="canonical" href="http://yoursite.com/2020/04/22/微服务架构学习笔记II-SpringCloud基本组件/">
 
 
 
 
 
-  <title>浅谈Java8 | KANGPEIQIN</title>
+  <title>微服务架构学习笔记II--SpringCloud基本组件 | KANGPEIQIN</title>
   
 
 
@@ -251,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/27/Java8/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/22/微服务架构学习笔记II-SpringCloud基本组件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="KANGPEIQIN">
@@ -268,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">浅谈Java8</h1>
+          <h1 class="post-title" itemprop="name headline">微服务架构学习笔记II--SpringCloud基本组件</h1>
         
 
         <div class="post-meta">
@@ -280,8 +281,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-27T23:47:00+08:00">
-                2020-03-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-22T21:56:00+08:00">
+                2020-04-22
               </time>
             
 
@@ -303,8 +304,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/SpringCloud/" itemprop="url" rel="index">
+                    <span itemprop="name">SpringCloud</span>
                   </a>
                 </span>
 
@@ -342,30 +343,46 @@
       
         <hr>
 <a id="more"></a>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>整理下Java8的新特性。这篇文章不会说把Java8的知识点说的面面俱到，因为已经有很多博客、书籍都写的很好了，更多的细节可以去看看这些博客与书籍。在这里，主要记录下学习Java8过程中的一些困惑点。</p>
-</blockquote>
-<p><img src="/uploads/Java8.png" alt="Java8"></p>
-<h2 id="一个简单的示例"><a href="#一个简单的示例" class="headerlink" title="一个简单的示例"></a>一个简单的示例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 定义一个函数接口：(只有一个抽象方法，可有多个默认实现的接口)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@FunctionalInterface</span><span class="comment">//添加这个注解后，编译器会检查当前的接口是否符合函数接口规范</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Converter</span>&lt;<span class="title">F</span>, <span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function">T <span class="title">convert</span><span class="params">(F from)</span></span>; <span class="comment">//传入F类型参数，输出T类型结果</span></span><br><span class="line">    <span class="function"><span class="keyword">default</span> Integer <span class="title">convertToInteger</span><span class="params">(String s)</span> </span>&#123;<span class="comment">//默认方法实现，可有多个</span></span><br><span class="line">        <span class="keyword">return</span> Integer.valueOf(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//测试：实现接口</span></span><br><span class="line">Converter&lt;String, Integer&gt; converter = <span class="keyword">new</span> Converter&lt;String, Integer&gt;() &#123;</span><br><span class="line">     <span class="meta">@Override</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> Integer <span class="title">convert</span><span class="params">(String from)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Integer.valueOf(from);</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;;</span><br><span class="line"> <span class="comment">//可以将Lambda表达式简单的理解为更加简洁的函数接口的实现方式。</span></span><br><span class="line">Converter&lt;String, Integer&gt; converter = Integer::valueOf;( 方法引用等价于：v-&gt; Integer.valueOf(v))<span class="comment">//前面是参数(编译器可以推断出参数类型)，后面是Lambda主体</span></span><br></pre></td></tr></table></figure>
-<h2 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h2><blockquote>
-<p>Lambda表达式返回的是函数接口类型，其实与代替匿名函数的作用是相同的。</p>
-</blockquote>
-<h2 id="JDK提供函数接口"><a href="#JDK提供函数接口" class="headerlink" title="JDK提供函数接口"></a>JDK提供函数接口</h2><blockquote>
-<p>JDK中提供了很多实用的函数接口，大概列出了一些，具体可看下API文档,在使用过程看下源码可以理解的更透彻。Stream API 中很多方法使用了这些函数接口。<code>Predicates</code>：断言型、<code>Functions</code>：接受一个参数并生成结果、<code>Suppliers</code>：产生给定泛型类型的结果、<code>Consumers</code>：表示要对单个输入参数执行的操作。可以从源码入手了解这些接口，可以尝试写几个示例了解如何使用，再过来深入理解，其实在Stream API中大量使用了这些接口,在使用Stream API的时候就不知不觉用到了。</p>
-</blockquote>
-<h2 id="流-Stream"><a href="#流-Stream" class="headerlink" title="流(Stream)"></a>流(Stream)</h2><h3 id="构建流"><a href="#构建流" class="headerlink" title="构建流"></a>构建流</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//由值构建</span><br><span class="line">String s = &quot;sunnyDay&quot;;</span><br><span class="line">List list = Stream.of(s).collect(Collectors.toList());//使用Stream.of()构建流</span><br><span class="line">//由数组构建</span><br><span class="line">int[] numbers = &#123;2, 0, 2, 0&#125;;</span><br><span class="line">int sum = Arrays.stream(numbers).sum();</span><br></pre></td></tr></table></figure>
-<h3 id="流的操作"><a href="#流的操作" class="headerlink" title="流的操作"></a>流的操作</h3><blockquote>
-<p>基本的使用：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">* 流的操作：filter、sorted、map(一种类型转换成另一种类型)、</span><br><span class="line">* flatMap(多个流连接成一个流)、max/min、reduce(从一组值生成单值)</span><br><span class="line">*/</span><br><span class="line">int max = Arrays.stream(new Integer[]&#123;1, 2, 4, 5, 6&#125;).filter(e -&gt; e &gt; 5).map(v -&gt; v * v).max(Integer::compareTo).get();</span><br><span class="line">int sum = Stream.of(1, 3, 5).reduce(0, Integer::sum);</span><br></pre></td></tr></table></figure>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><blockquote>
-<p>好了，今天的分享就到这了，还有….欢迎关注我的<a href="https://juejin.im/post/5e7e1aaf51882573c04cbdcb#heading-0" target="_blank" rel="noopener">掘金博客</a></p>
-</blockquote>
-<hr>
-<blockquote>
-<p>参考：<a href="https://github.com/winterbe/java8-tutorial#default-methods-for-interfaces" target="_blank" rel="noopener">https://github.com/winterbe/java8-tutorial#default-methods-for-interfaces</a><br>《Java8实战》</p>
-</blockquote>
+<div style="background: -webkit-linear-gradient(top, transparent 19px, #ececec 20px), -webkit-linear-gradient(left, transparent 19px, #ececec 20px);
+            background-size: 20px 20px;">
 
+
+
+<blockquote>
+<p>其实整个微服务的核心就在下面这张图里面。在这张图里面我们可以看到很多组件，接下来就聊一聊这些组件的概念及其用法。</p>
+</blockquote>
+<p><img style="width: auto;
+    max-width: 100%;
+    border-radius: 12px;
+    display: block;
+    margin: 20px auto;
+    object-fit: contain;
+    box-shadow: 2px 4px 7px #999;" src="/uploads/springCloud.png"></p>
+<p></p><h2 style="color: inherit; line-height: inherit; padding: 0px; margin: 1.6em 0px; font-weight: bold; border-bottom: 2px solid rgb(127, 127, 127); font-size: 1.3em;"><span style="font-size: inherit; line-height: inherit; margin: 0px; display: inline-block; font-weight: normal; background: rgb(127, 127, 127); color: rgb(255, 255, 255); padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px; margin-right: 3px;">服务治理</span></h2><p></p>
+<ul>
+<li>基本概念<blockquote>
+<p>服务与服务之间是如何通信的？知道对方的地址，就可以进行通信了。但是如果每个服务都要自己管理一堆的通信地址，这样就显得很不灵活，万一又上线了一些服务，有些已经运行的服务就不知道新上线的这个服务的地址了。所以就引入了第三方中介：服务治理服务器。服务提供者</p>
+</blockquote>
+</li>
+</ul>
+<p><img style="width: auto;
+    max-width: 100%;
+    border-radius: 12px;
+    display: block;
+    margin: 20px auto;
+    object-fit: contain;
+    box-shadow: 2px 4px 7px #999;" src="/uploads/Eureka.png"></p>
+<h3 id="服务治理框架"><a href="#服务治理框架" class="headerlink" title="服务治理框架"></a>服务治理框架</h3><blockquote>
+<p>主要有Eureka和Consul,就以Eureka为例子吧。</p>
+<ul>
+<li>如何构建(关于如何构建网上应该有很多文章了吧，下面就说下构建的大概过程)<ul>
+<li>1、Parent工程搭建：对所使用的SpringCloud和第三方依赖进行版本的统一管理。后面的微服务工程的Pom文件都继承该文件。</li>
+<li>2、Eureka服务器的搭建及其相关配置。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</div>
       
     </div>
     
@@ -389,8 +406,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/15/回顾一下那些经典的算法/" rel="next" title="数据结构与算法">
-                <i class="fa fa-chevron-left"></i> 数据结构与算法
+              <a href="/2020/04/19/微服务架构笔记I-理解微服务/" rel="next" title="微服务架构笔记I--理解微服务">
+                <i class="fa fa-chevron-left"></i> 微服务架构笔记I--理解微服务
               </a>
             
           </div>
@@ -398,10 +415,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/04/19/微服务架构笔记I-理解微服务/" rel="prev" title="微服务架构笔记I--理解微服务">
-                微服务架构笔记I--理解微服务 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -538,7 +551,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个简单的示例"><span class="nav-number">2.</span> <span class="nav-text">一个简单的示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lambda表达式"><span class="nav-number">3.</span> <span class="nav-text">Lambda表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK提供函数接口"><span class="nav-number">4.</span> <span class="nav-text">JDK提供函数接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流-Stream"><span class="nav-number">5.</span> <span class="nav-text">流(Stream)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构建流"><span class="nav-number">5.1.</span> <span class="nav-text">构建流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流的操作"><span class="nav-number">5.2.</span> <span class="nav-text">流的操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后"><span class="nav-number">6.</span> <span class="nav-text">最后</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">服务治理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务治理框架"><span class="nav-number">1.1.</span> <span class="nav-text">服务治理框架</span></a></li></ol></li></ol></div>
             
 
           </div>

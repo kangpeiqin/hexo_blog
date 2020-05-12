@@ -80,16 +80,18 @@
 
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="微服务架构笔记I--理解微服务">
+<meta property="og:title" content="微服务架构笔记">
 <meta property="og:url" content="http://yoursite.com/2020/04/19/微服务架构笔记I-理解微服务/index.html">
 <meta property="og:site_name" content="KANGPEIQIN">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/uploads/cloud.png">
 <meta property="og:image" content="http://yoursite.com/uploads/micro.png">
 <meta property="og:image" content="http://yoursite.com/uploads/xmind.png">
-<meta property="og:updated_time" content="2020-04-22T15:09:01.163Z">
+<meta property="og:image" content="http://yoursite.com/uploads/Eureka.png">
+<meta property="og:image" content="http://yoursite.com/uploads/loadBalance.png">
+<meta property="og:updated_time" content="2020-05-12T16:19:53.115Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="微服务架构笔记I--理解微服务">
+<meta name="twitter:title" content="微服务架构笔记">
 <meta name="twitter:image" content="http://yoursite.com/uploads/cloud.png">
 
 
@@ -126,7 +128,7 @@
 
 
 
-  <title>微服务架构笔记I--理解微服务 | KANGPEIQIN</title>
+  <title>微服务架构笔记 | KANGPEIQIN</title>
   
 
 
@@ -270,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">微服务架构笔记I--理解微服务</h1>
+          <h1 class="post-title" itemprop="name headline">微服务架构笔记</h1>
         
 
         <div class="post-meta">
@@ -353,7 +355,7 @@
 <p><div style="background: -webkit-linear-gradient(top, transparent 19px, #ececec 20px), -webkit-linear-gradient(left, transparent 19px, #ececec 20px);
             background-size: 20px 20px;"></div></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>服务器端开发的历史比较长，应该有几十年史了吧，所以很多问题都有现成的解决方案。在JavaWeb中，我们都很少能够绕开Spring家族，它提供了很多稳健可复用的代码，简化了开发工作，让开发者更多地去关注业务层面代码逻辑的实现。以下是SpringCloud的学习笔记，理清一些基本的概念以及微服务开发的流程。</p>
+<p>微服务的引入是为了解决分布式架构的复杂性，当业务场景较为复杂时，需要庞大的计算机集群提供支撑时，可以将功能拆分成一系列微服务，方便动态的扩充服务。</p>
 </blockquote>
 <h2 id="微服务架构"><a href="#微服务架构" class="headerlink" title="微服务架构"></a>微服务架构</h2><ul>
 <li>什么是微服务(分布式架构的一种解决方案)<blockquote>
@@ -365,12 +367,8 @@
 <ul>
 <li>微服务设计需要考虑的一些因素<ul>
 <li>服务粒度(承担的职责、业务划分)</li>
-<li>拆分原则(单一职责原则、共同封闭原则:将需要修改范围限制在同一个包中)</li>
-<li>自治原则<blockquote>
-<p>每个微服务拥有其业务领域对象下的数据，只有该微服务可以对这些数据进行读写操作，其他微服务只能通过该微服务才能访问到这些数据。所以，可以不用为每个微服务创建独立的数据库，可以创建统一的数据库。</p>
-</blockquote>
-</li>
-<li>交互原则(REST协议：用HTTP作为服务的调用协议、JSON数据格式等)</li>
+<li>拆分原则(单一职责原则、共同封闭原则)</li>
+<li>自治原则</li>
 </ul>
 </li>
 <li>微服务架构的核心点(微服务架构是思想，SpringCloud可以说是提供了一套实现和解决方案，为开发者提供了一套基础设施，让我们不必再从零进行构建)</li>
@@ -382,6 +380,17 @@
 </blockquote>
 </li>
 </ul>
+<h3 id="服务治理"><a href="#服务治理" class="headerlink" title="服务治理"></a>服务治理</h3><blockquote>
+<p>服务与服务之间是如何通信的？知道对方的地址，就可以进行通信了。但是如果每个服务都要自己管理一堆的通信地址，这样就显得很不灵活，万一又上线了一些服务，有些已经运行的服务就不知道新上线的这个服务的地址了。所以就引入了第三方中介：服务治理服务器用来统一管理这些服务。目前主流的实现框架有：<code>Consul</code>和<code>Eureka</code>。</p>
+</blockquote>
+<p><img src="/uploads/Eureka.png" alt="Eureka"></p>
+<h3 id="客户端负载均衡"><a href="#客户端负载均衡" class="headerlink" title="客户端负载均衡"></a>客户端负载均衡</h3><ul>
+<li>主要的解决方案<blockquote>
+<p>集中式、进程内、主机独立负载均衡</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="/uploads/loadBalance.png" alt="Eureka"></p>
 <hr>
 <blockquote>
 <p>参考：《Spring Cloud微服务开发架构实战》、<a href="https://spring.io/projects/spring-cloud" target="_blank" rel="noopener">Spring Cloud官网</a></p>
@@ -419,10 +428,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/04/22/微服务架构学习笔记II-SpringCloud基本组件/" rel="prev" title="微服务架构笔记II--SpringCloud基本组件">
-                微服务架构笔记II--SpringCloud基本组件 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -503,7 +508,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -559,7 +564,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微服务架构"><span class="nav-number">2.</span> <span class="nav-text">微服务架构</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微服务架构"><span class="nav-number">2.</span> <span class="nav-text">微服务架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务治理"><span class="nav-number">2.1.</span> <span class="nav-text">服务治理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端负载均衡"><span class="nav-number">2.2.</span> <span class="nav-text">客户端负载均衡</span></a></li></ol></li></ol></div>
             
 
           </div>

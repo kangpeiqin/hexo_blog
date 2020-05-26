@@ -89,7 +89,7 @@
 <meta property="og:image" content="http://yoursite.com/uploads/xmind.png">
 <meta property="og:image" content="http://yoursite.com/uploads/Eureka.png">
 <meta property="og:image" content="http://yoursite.com/uploads/loadBalance.png">
-<meta property="og:updated_time" content="2020-05-12T16:19:53.115Z">
+<meta property="og:updated_time" content="2020-05-26T16:08:17.658Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微服务架构笔记">
 <meta name="twitter:image" content="http://yoursite.com/uploads/cloud.png">
@@ -354,14 +354,9 @@
     box-shadow: 2px 4px 7px #999;" src="/uploads/cloud.png"><br><a id="more"></a></p>
 <p><div style="background: -webkit-linear-gradient(top, transparent 19px, #ececec 20px), -webkit-linear-gradient(left, transparent 19px, #ececec 20px);
             background-size: 20px 20px;"></div></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>微服务的引入是为了解决分布式架构的复杂性，当业务场景较为复杂时，需要庞大的计算机集群提供支撑时，可以将功能拆分成一系列微服务，方便动态的扩充服务。</p>
-</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>微服务的引入是为了解决分布式架构的复杂性，当业务场景较为复杂时，需要庞大的计算机集群提供支撑时，可以将功能拆分成一系列微服务，方便动态的扩充服务。</p>
 <h2 id="微服务架构"><a href="#微服务架构" class="headerlink" title="微服务架构"></a>微服务架构</h2><ul>
-<li>什么是微服务(分布式架构的一种解决方案)<blockquote>
-<p>单体应用(所有功能都打包在一个jar或者war文件在服务器中运行)适用于小型项目，缺点是:承担职责多，不利于扩展。一旦项目变得庞大和复杂，由众多的业务构成，就必须考虑可扩展、易于部署的架构。<strong>微服务是将功能拆分成一系列微服务的架构模式</strong>，可以理解成分治的策略。</p>
-</blockquote>
-</li>
+<li>什么是微服务(分布式架构的一种解决方案)<br>单体应用(所有功能都打包在一个jar或者war文件在服务器中运行)适用于小型项目，缺点是:承担职责多，不利于扩展。一旦项目变得庞大和复杂，由众多的业务构成，就必须考虑可扩展、易于部署的架构。<strong>微服务是将功能拆分成一系列微服务的架构模式</strong>，可以理解成分治的策略。</li>
 </ul>
 <p><img src="/uploads/micro.png" alt="架构演变"></p>
 <ul>
@@ -375,22 +370,20 @@
 </ul>
 <p><img src="/uploads/xmind.png" alt="xmind"></p>
 <ul>
-<li>SpringCloud概述<blockquote>
-<p>对已有微服务组件的封装和集成，为快速构建微服务架构应用提供一套基础设施工具和开发支持，是众多子项目的集成。版本名称是使用伦敦地铁站名称发布。子项目大致可分为两类：一是<strong>对现有第三方开源项目SpringBoot化</strong>(每个微服务d都是一个独立的应用，需要快速启动、提供服务接口等，Spring Boot刚好符合这些要求)，使得基于Spring开发容易集成和使用。二是<strong>新增微服务开发所需要的基础设施</strong>：如统一配置中心、Stream充当消息中间件快速集成的桥梁。</p>
-</blockquote>
-</li>
+<li>SpringCloud概述<br>对已有微服务组件的封装和集成，为快速构建微服务架构应用提供一套基础设施工具和开发支持，是众多子项目的集成。版本名称是使用伦敦地铁站名称发布。子项目大致可分为两类：一是<strong>对现有第三方开源项目SpringBoot化</strong>(每个微服务d都是一个独立的应用，需要快速启动、提供服务接口等，Spring Boot刚好符合这些要求)，使得基于Spring开发容易集成和使用。二是<strong>新增微服务开发所需要的基础设施</strong>：如统一配置中心、Stream充当消息中间件快速集成的桥梁。</li>
 </ul>
-<h3 id="服务治理"><a href="#服务治理" class="headerlink" title="服务治理"></a>服务治理</h3><blockquote>
-<p>服务与服务之间是如何通信的？知道对方的地址，就可以进行通信了。但是如果每个服务都要自己管理一堆的通信地址，这样就显得很不灵活，万一又上线了一些服务，有些已经运行的服务就不知道新上线的这个服务的地址了。所以就引入了第三方中介：服务治理服务器用来统一管理这些服务。目前主流的实现框架有：<code>Consul</code>和<code>Eureka</code>。</p>
-</blockquote>
+<h3 id="服务治理"><a href="#服务治理" class="headerlink" title="服务治理"></a>服务治理</h3><p>服务与服务之间是如何通信的？知道对方的地址，就可以进行通信了。但是如果每个服务都要自己管理一堆的通信地址，这样就显得很不灵活，万一又上线了一些服务，有些已经运行的服务就不知道新上线的这个服务的地址了。所以就引入了第三方中介：服务治理服务器用来统一管理这些服务。目前主流的实现框架有：<code>Consul</code>和<code>Eureka</code>。</p>
 <p><img src="/uploads/Eureka.png" alt="Eureka"></p>
 <h3 id="客户端负载均衡"><a href="#客户端负载均衡" class="headerlink" title="客户端负载均衡"></a>客户端负载均衡</h3><ul>
-<li>主要的解决方案<blockquote>
-<p>集中式、进程内、主机独立负载均衡</p>
-</blockquote>
-</li>
+<li>主要的解决方案<br>集中式、进程内、主机独立负载均衡</li>
 </ul>
 <p><img src="/uploads/loadBalance.png" alt="Eureka"></p>
+<h3 id="微服务容错保护机制"><a href="#微服务容错保护机制" class="headerlink" title="微服务容错保护机制"></a>微服务容错保护机制</h3><p>微服务之间相互调用，形成依赖关系，但是并不能保证服务百分之百可用，有些服务的调用失败可能会影响到全部的服务，所以添加了容错机制，避免调用事变对调用方造成的影响。组件Hystrix就提供了这些功能。Hystrix通过断路器的故障监控，向调用方返回一个符合预期的降级处理。</p>
+<h3 id="API服务网关"><a href="#API服务网关" class="headerlink" title="API服务网关"></a>API服务网关</h3><p>一个客户端可能请求多个微服务。API网关为所有客户端请求提供统一的网关，并通过该网关接入不同的服务。组件Zuul便是这一思想的主要实现。整个服务只需要对外暴露一个API,对外屏蔽了服务端的实现细节。</p>
+<h3 id="统一配置中心"><a href="#统一配置中心" class="headerlink" title="统一配置中心"></a>统一配置中心</h3><p>我们在开发简单应用的时候通常要做许多配置。微服务也是一样的。Config子项目通过一个服务端和多个客户端实现配置服务。</p>
+<h3 id="分布式服务跟踪"><a href="#分布式服务跟踪" class="headerlink" title="分布式服务跟踪"></a>分布式服务跟踪</h3><p>SpringCloud Sleuth为微服务之间的调用提供了一套完整的链路跟踪解决方案。提供的功能有：耗时分析、服务追踪 、服务监控。</p>
+<h3 id="消息驱动"><a href="#消息驱动" class="headerlink" title="消息驱动"></a>消息驱动</h3><p>通过消息中间件存储和转发微服务之间的异步数据，使得服务之间彼此不需要直接通信。SpringCloud支持多种消息中间件整合：Kafka、RabbitMQ等。</p>
+<h3 id="微服务安全"><a href="#微服务安全" class="headerlink" title="微服务安全"></a>微服务安全</h3><p>SpringCloud提供的安全解决方案有：SpringSecurity、OAuth 2 以及JWT</p>
 <hr>
 <blockquote>
 <p>参考：《Spring Cloud微服务开发架构实战》、<a href="https://spring.io/projects/spring-cloud" target="_blank" rel="noopener">Spring Cloud官网</a></p>
@@ -564,7 +557,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微服务架构"><span class="nav-number">2.</span> <span class="nav-text">微服务架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务治理"><span class="nav-number">2.1.</span> <span class="nav-text">服务治理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端负载均衡"><span class="nav-number">2.2.</span> <span class="nav-text">客户端负载均衡</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微服务架构"><span class="nav-number">2.</span> <span class="nav-text">微服务架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务治理"><span class="nav-number">2.1.</span> <span class="nav-text">服务治理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端负载均衡"><span class="nav-number">2.2.</span> <span class="nav-text">客户端负载均衡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微服务容错保护机制"><span class="nav-number">2.3.</span> <span class="nav-text">微服务容错保护机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#API服务网关"><span class="nav-number">2.4.</span> <span class="nav-text">API服务网关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#统一配置中心"><span class="nav-number">2.5.</span> <span class="nav-text">统一配置中心</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式服务跟踪"><span class="nav-number">2.6.</span> <span class="nav-text">分布式服务跟踪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#消息驱动"><span class="nav-number">2.7.</span> <span class="nav-text">消息驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微服务安全"><span class="nav-number">2.8.</span> <span class="nav-text">微服务安全</span></a></li></ol></li></ol></div>
             
 
           </div>

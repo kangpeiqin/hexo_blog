@@ -80,19 +80,19 @@
 
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="微服务架构笔记">
-<meta property="og:url" content="http://yoursite.com/2020/04/19/微服务架构笔记I-理解微服务/index.html">
+<meta property="og:title" content="密码学浅谈">
+<meta property="og:url" content="http://yoursite.com/2020/08/08/密码学浅谈/index.html">
 <meta property="og:site_name" content="KANGPEIQIN">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/uploads/cloud.png">
-<meta property="og:image" content="http://yoursite.com/uploads/micro.png">
-<meta property="og:image" content="http://yoursite.com/uploads/xmind.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Eureka.png">
-<meta property="og:image" content="http://yoursite.com/uploads/loadBalance.png">
-<meta property="og:updated_time" content="2020-05-26T16:08:17.658Z">
+<meta property="og:image" content="http://yoursite.com/uploads/encrypt.png">
+<meta property="og:image" content="http://yoursite.com/uploads/private.png">
+<meta property="og:image" content="http://yoursite.com/uploads/public.png">
+<meta property="og:image" content="http://yoursite.com/uploads/hybrid.png">
+<meta property="og:image" content="http://yoursite.com/uploads/mac.png">
+<meta property="og:updated_time" content="2020-08-09T09:18:50.183Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="微服务架构笔记">
-<meta name="twitter:image" content="http://yoursite.com/uploads/cloud.png">
+<meta name="twitter:title" content="密码学浅谈">
+<meta name="twitter:image" content="http://yoursite.com/uploads/encrypt.png">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/04/19/微服务架构笔记I-理解微服务/">
+  <link rel="canonical" href="http://yoursite.com/2020/08/08/密码学浅谈/">
 
 
 
 
 
-  <title>微服务架构笔记 | KANGPEIQIN</title>
+  <title>密码学浅谈 | KANGPEIQIN</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/19/微服务架构笔记I-理解微服务/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/08/密码学浅谈/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="KANGPEIQIN">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">微服务架构笔记</h1>
+          <h1 class="post-title" itemprop="name headline">密码学浅谈</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-19T23:46:00+08:00">
-                2020-04-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-08T23:26:51+08:00">
+                2020-08-08
               </time>
             
 
@@ -294,28 +294,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/SpringCloud/" itemprop="url" rel="index">
-                    <span itemprop="name">SpringCloud</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -344,49 +322,59 @@
       
 
       
-        <p><img style="width: auto;
+        <hr>
+<a id="more"></a>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>密码学在通信过程中扮演着重要的角色。想象以下这样一个场景：<br><img style="width: auto;
     max-width: 100%;
-    height:250px;
     border-radius: 12px;
     display: block;
     margin: 20px auto;
     object-fit: contain;
-    box-shadow: 2px 4px 7px #999;" src="/uploads/cloud.png"><br><a id="more"></a></p>
-<p><div style="background: -webkit-linear-gradient(top, transparent 19px, #ececec 20px), -webkit-linear-gradient(left, transparent 19px, #ececec 20px);
-            background-size: 20px 20px;"></div></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>微服务的引入是为了解决分布式架构的复杂性，当业务场景较为复杂时，需要庞大的计算机集群提供支撑时，可以将功能拆分成一系列微服务，方便动态的扩充服务。</p>
-<h2 id="微服务架构"><a href="#微服务架构" class="headerlink" title="微服务架构"></a>微服务架构</h2><ul>
-<li>什么是微服务(分布式架构的一种解决方案)<br>单体应用(所有功能都打包在一个jar或者war文件在服务器中运行)适用于小型项目，缺点是:承担职责多，不利于扩展。一旦项目变得庞大和复杂，由众多的业务构成，就必须考虑可扩展、易于部署的架构。<strong>微服务是将功能拆分成一系列微服务的架构模式</strong>，可以理解成分治的策略。</li>
-</ul>
-<p><img src="/uploads/micro.png" alt="架构演变"></p>
+    box-shadow: 2px 4px 7px #999;" src="/uploads/encrypt.png"><br>在A与B的通信过程中，消息会被路由，通过多台机器最终到达目的地。在这过程中可能会出现的问题:</p>
 <ul>
-<li>微服务设计需要考虑的一些因素<ul>
-<li>服务粒度(承担的职责、业务划分)</li>
-<li>拆分原则(单一职责原则、共同封闭原则)</li>
-<li>自治原则</li>
+<li>通信的消息被窃听或者拦截，如果消息以明文发送，则窃听者很容易获取到真实的传送消息,加密后窃听者只能窃听到密文。</li>
+<li>攻击者拦截到传送消息并篡改消息。</li>
+<li>攻击者伪造消息，让B误以为是A发送过来的消息。</li>
 </ul>
-</li>
-<li>微服务架构的核心点(微服务架构是思想，SpringCloud可以说是提供了一套实现和解决方案，为开发者提供了一套基础设施，让我们不必再从零进行构建)</li>
-</ul>
-<p><img src="/uploads/xmind.png" alt="xmind"></p>
+<p>针对以上三种问题，有相应的解决方案：</p>
 <ul>
-<li>SpringCloud概述<br>对已有微服务组件的封装和集成，为快速构建微服务架构应用提供一套基础设施工具和开发支持，是众多子项目的集成。版本名称是使用伦敦地铁站名称发布。子项目大致可分为两类：一是<strong>对现有第三方开源项目SpringBoot化</strong>(每个微服务d都是一个独立的应用，需要快速启动、提供服务接口等，Spring Boot刚好符合这些要求)，使得基于Spring开发容易集成和使用。二是<strong>新增微服务开发所需要的基础设施</strong>：如统一配置中心、Stream充当消息中间件快速集成的桥梁。</li>
+<li>使用加密技术(用加密算法产生秘钥进行加密)，比较常见的是对称加密(共享秘钥)、非对称加密(公钥加密、私钥解密，如：RSA加密算法)、混合密码系统。</li>
+<li>使用单向散列函数(如：MD5加密算法)：保证消息的完整性(判断消息是否被篡改)</li>
+<li>使用消息认证码：保证消息的完整性、确认消息是否来自期望的通信对象。</li>
+<li>数字签名：防止篡改、伪装、否认等技术。</li>
 </ul>
-<h3 id="服务治理"><a href="#服务治理" class="headerlink" title="服务治理"></a>服务治理</h3><p>服务与服务之间是如何通信的？知道对方的地址，就可以进行通信了。但是如果每个服务都要自己管理一堆的通信地址，这样就显得很不灵活，万一又上线了一些服务，有些已经运行的服务就不知道新上线的这个服务的地址了。所以就引入了第三方中介：服务治理服务器用来统一管理这些服务。目前主流的实现框架有：<code>Consul</code>和<code>Eureka</code>。</p>
-<p><img src="/uploads/Eureka.png" alt="Eureka"></p>
-<h3 id="客户端负载均衡"><a href="#客户端负载均衡" class="headerlink" title="客户端负载均衡"></a>客户端负载均衡</h3><ul>
-<li>主要的解决方案<br>集中式、进程内、主机独立负载均衡</li>
-</ul>
-<p><img src="/uploads/loadBalance.png" alt="Eureka"></p>
-<h3 id="微服务容错保护机制"><a href="#微服务容错保护机制" class="headerlink" title="微服务容错保护机制"></a>微服务容错保护机制</h3><p>微服务之间相互调用，形成依赖关系，但是并不能保证服务百分之百可用，有些服务的调用失败可能会影响到全部的服务，所以添加了容错机制，避免调用事变对调用方造成的影响。组件Hystrix就提供了这些功能。Hystrix通过断路器的故障监控，向调用方返回一个符合预期的降级处理。</p>
-<h3 id="API服务网关"><a href="#API服务网关" class="headerlink" title="API服务网关"></a>API服务网关</h3><p>一个客户端可能请求多个微服务。API网关为所有客户端请求提供统一的网关，并通过该网关接入不同的服务。组件Zuul便是这一思想的主要实现。整个服务只需要对外暴露一个API,对外屏蔽了服务端的实现细节。</p>
-<h3 id="统一配置中心"><a href="#统一配置中心" class="headerlink" title="统一配置中心"></a>统一配置中心</h3><p>我们在开发简单应用的时候通常要做许多配置。微服务也是一样的。Config子项目通过一个服务端和多个客户端实现配置服务。</p>
-<h3 id="分布式服务跟踪"><a href="#分布式服务跟踪" class="headerlink" title="分布式服务跟踪"></a>分布式服务跟踪</h3><p>SpringCloud Sleuth为微服务之间的调用提供了一套完整的链路跟踪解决方案。提供的功能有：耗时分析、服务追踪 、服务监控。</p>
-<h3 id="消息驱动"><a href="#消息驱动" class="headerlink" title="消息驱动"></a>消息驱动</h3><p>通过消息中间件存储和转发微服务之间的异步数据，使得服务之间彼此不需要直接通信。SpringCloud支持多种消息中间件整合：Kafka、RabbitMQ等。</p>
-<h3 id="微服务安全"><a href="#微服务安全" class="headerlink" title="微服务安全"></a>微服务安全</h3><p>SpringCloud提供的安全解决方案有：SpringSecurity、OAuth 2 以及JWT</p>
-<hr>
+<p>总的来说要保证消息传送的安全性，主要要在两个方面进行入手：加密和认证，加密保证消息在被窃听之后对方需要破译密文才能获取到真正有效的消息，认证则是判断消息是否来自期望的通信对象、判断消息在通信过程中有无被篡改。</p>
+<h2 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h2><h3 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h3><p>加密和解密使用的是同一把秘钥(如：使用异或进行比特加密)。<br><img style="width: auto;
+    max-width: 100%;
+    border-radius: 12px;
+    display: block;
+    margin: 20px auto;
+    object-fit: contain;
+    box-shadow: 2px 4px 7px #999;" src="/uploads/private.png"></p>
+<h3 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h3><p>事先产生秘钥对(公钥和私钥匙：公钥用于加密，私钥用于解密)，秘钥的产生者必须保存好秘钥，防止秘钥泄露。缺点是处理速度比对称加密慢。容易遭受中间人攻击(中间人获取公钥，进行伪装)。比较常用加密算法：RSA加密。<br><img style="width: auto;
+    max-width: 100%;
+    border-radius: 12px;
+    display: block;
+    margin: 20px auto;
+    object-fit: contain;
+    box-shadow: 2px 4px 7px #999;" src="/uploads/public.png"></p>
+<h3 id="混合密码系统"><a href="#混合密码系统" class="headerlink" title="混合密码系统"></a>混合密码系统</h3><p>由于非对称加密处理速度的问题，所以有了混合加密系统提升速度。<br><img style="width: auto;
+    max-width: 100%;
+    border-radius: 12px;
+    display: block;
+    margin: 20px auto;
+    object-fit: contain;
+    box-shadow: 2px 4px 7px #999;" src="/uploads/hybrid.png"></p>
+<h2 id="认证"><a href="#认证" class="headerlink" title="认证"></a>认证</h2><h3 id="单向散列函数"><a href="#单向散列函数" class="headerlink" title="单向散列函数"></a>单向散列函数</h3><p>利用单向散列函数计算消息的散列值(当然散列值必须妥善保存)。消息传送后在与原来的散列值进行比较，如果相同则说明消息是完整的，没有被篡改过。</p>
+<h3 id="消息认证码-Message-Authentication-Code"><a href="#消息认证码-Message-Authentication-Code" class="headerlink" title="消息认证码(Message Authentication Code)"></a>消息认证码(Message Authentication Code)</h3><p>消息认证和单向散列函数有点类似，都保证了消息的完整性，但是使用消息认证码需要用到共享密钥，这也涉及到密钥的传送。<br><img style="width: auto;
+    max-width: 100%;
+    border-radius: 12px;
+    display: block;
+    margin: 20px auto;
+    object-fit: contain;
+    box-shadow: 2px 4px 7px #999;" src="/uploads/mac.png"></p>
 <blockquote>
-<p>参考：《Spring Cloud微服务开发架构实战》、<a href="https://spring.io/projects/spring-cloud" target="_blank" rel="noopener">Spring Cloud官网</a></p>
+<p>参考：《图解密码学》</p>
 </blockquote>
 
       
@@ -412,8 +400,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/03/27/Java8/" rel="next" title="浅谈Java8">
-                <i class="fa fa-chevron-left"></i> 浅谈Java8
+              <a href="/2020/04/19/微服务架构笔记I-理解微服务/" rel="next" title="微服务架构笔记">
+                <i class="fa fa-chevron-left"></i> 微服务架构笔记
               </a>
             
           </div>
@@ -421,10 +409,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/08/08/密码学浅谈/" rel="prev" title="密码学浅谈">
-                密码学浅谈 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -561,7 +545,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微服务架构"><span class="nav-number">2.</span> <span class="nav-text">微服务架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务治理"><span class="nav-number">2.1.</span> <span class="nav-text">服务治理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端负载均衡"><span class="nav-number">2.2.</span> <span class="nav-text">客户端负载均衡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微服务容错保护机制"><span class="nav-number">2.3.</span> <span class="nav-text">微服务容错保护机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#API服务网关"><span class="nav-number">2.4.</span> <span class="nav-text">API服务网关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#统一配置中心"><span class="nav-number">2.5.</span> <span class="nav-text">统一配置中心</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式服务跟踪"><span class="nav-number">2.6.</span> <span class="nav-text">分布式服务跟踪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#消息驱动"><span class="nav-number">2.7.</span> <span class="nav-text">消息驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微服务安全"><span class="nav-number">2.8.</span> <span class="nav-text">微服务安全</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加密"><span class="nav-number">2.</span> <span class="nav-text">加密</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对称加密"><span class="nav-number">2.1.</span> <span class="nav-text">对称加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非对称加密"><span class="nav-number">2.2.</span> <span class="nav-text">非对称加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混合密码系统"><span class="nav-number">2.3.</span> <span class="nav-text">混合密码系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#认证"><span class="nav-number">3.</span> <span class="nav-text">认证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单向散列函数"><span class="nav-number">3.1.</span> <span class="nav-text">单向散列函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#消息认证码-Message-Authentication-Code"><span class="nav-number">3.2.</span> <span class="nav-text">消息认证码(Message Authentication Code)</span></a></li></ol></li></ol></div>
             
 
           </div>
